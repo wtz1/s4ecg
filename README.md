@@ -49,19 +49,16 @@ To run the classification:
 
 2. **Training the model**:
 Set the desired config file using the `--config-name` flag. Example for a time-series-based model on Icentia11k:
-	```
-        python main.py --config-name=config_id_icentia.yaml
-
-        ```
+```
+python main.py --config-name=config_id_icentia.yaml
+```
 
 You can use other config settings by specifying different `.yaml` files located in the `./classification/code/conf` directory. We provide config files for the best-performing model architectures for time series and spectrograms as input representations.
 
 For ood test the path of trained model should be denoted as:
-
-	```
-        python main.py --config-name=config_ood_ltafdb.yaml trainer.eval_only=/path/best_model.ckpt
-
-        ```
+```
+python main.py --config-name=config_ood_ltafdb.yaml trainer.eval_only=/path/best_model.ckpt
+```
 
 
 ## Contribution
