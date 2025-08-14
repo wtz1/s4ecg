@@ -1,4 +1,4 @@
-# S4Sleep: Elucidating the design space of deep-learning-based sleep stage classification models
+# S4ECG: Exploring the impact of long-range interactions for arrhythmia prediction
 
 Welcome to the official GitHub repository for the paper "[S4ECG: Exploring the impact of long-range interactions for arrhythmia prediction]". If you consider this repository useful for you research, we would appreciate a citation of our preprint.
 
