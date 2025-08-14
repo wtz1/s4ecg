@@ -1,0 +1,13 @@
+defaults:
+  - base
+
+name: "ltafdb"
+path: "./datasets/ecg/ltafdb_fs128"
+fs: 128.
+annotation: true
+label_filter: [0,1,2]
+input_channels_filter: [0]
+
+train_fold_ids: []
+val_fold_ids: []
+test_fold_ids: [0,1,2,3,4]

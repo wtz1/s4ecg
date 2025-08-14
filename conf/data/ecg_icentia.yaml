@@ -1,0 +1,8 @@
+defaults:
+  - base
+
+name: "icentia"
+path: "./datasets/icentia/memmap"
+fs: 128.
+annotation: true
+label_filter: [0,1,2]

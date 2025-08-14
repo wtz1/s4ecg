@@ -1,0 +1,9 @@
+defaults:
+  - base
+
+name: "ltafdb"
+path: "./datasets/ecg/ltafdb_fs128"
+fs: 128.
+annotation: true
+label_filter: [0,1,2]
+input_channels_filter: [0]

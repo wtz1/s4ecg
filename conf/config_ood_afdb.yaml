@@ -1,0 +1,72 @@
+defaults:
+  - base: base
+  - data@data0: ecg_afdb
+
+
+  - ts: tsenc
+  - ts/enc: ees4
+  - ts/pred: s4
+  - ts/head: mlp #rnn
+  - loss: bce #cef
+  - static: none
+  - head: none
+  - trainer: trainer
+  - task: ecgseq
+  - metric: auroc
+  - _self_
+
+base:
+  lr: [0.001,0.001,0.001]
+  batch_size: 16
+  fs: 128
+  input_size: 115200
+  input_channels: 1
+  chunk_length_train: -1
+  normalize: false
+  aggregate_strided_multi_predictions: true
+  stride_train: -1
+  stride_val: -1
+  stride_valtest: 3840
+
+  label_aggregation_epoch_length: 3840
+  label_aggregation_majority_vote: false
+  label_aggregation_binary: false
+
+trainer:
+  accumulate: 4
+  precision: 32
+  num_workers : 2
+  gpus: 1
+  refresh_rate: 1
+  epochs: 5
+  export_predictions: true
+
+
+ts:
+  enc:
+    pre:
+      epoch_length: 3840
+      epoch_stride: 0
+    enc:
+      features: [ 128, 128 ]
+      kernel_sizes: [ 3, 3 ]
+      paddings: [ 1, 1 ]
+      strides: [ 2, 2 ]
+      timesteps_per_token: 1
+    pred:
+      causal: false
+      tie_dropout: true
+    post:
+      epoch_length: 3840
+      epoch_stride: 0
+
+  pred:
+    causal: false
+    model_dim: 512
+    tie_dropout: true
+  head:
+    multi_prediction: false
+    bias: true
+
+
+
